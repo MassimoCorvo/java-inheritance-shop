@@ -1,4 +1,4 @@
-public class Cuffie extends Prodotto{
+public class Cuffie extends Prodotto {
     private String colore;
     private String tipo;
 
@@ -6,27 +6,32 @@ public class Cuffie extends Prodotto{
         super(nome, marca, prezzo, iva);
         this.colore = colore;
 
-        if(tipo.equalsIgnoreCase("Wireless") || tipo.equalsIgnoreCase("Cablate"))
-         this.tipo = tipo;
-         else this.tipo = "Tipo non specificato";
+        if (tipo.equalsIgnoreCase("Wireless") || tipo.equalsIgnoreCase("Cablate"))
+            this.tipo = tipo;
+        else
+            this.tipo = "Tipo non specificato";
+
+        if (this.tipo.equals("Cablate"))
+            this.setSconto(0.07f);
+
     }
 
-    public String getColore(){
+    public String getColore() {
         return this.colore;
     }
 
-    public void setColore(String colore){
+    public void setColore(String colore) {
         this.colore = colore;
     }
 
-    public String getTipo(){
+    public String getTipo() {
         return this.tipo;
     }
 
-    public void setTipo(String tipo){
+    public void setTipo(String tipo) {
 
-        if(tipo.equalsIgnoreCase("Wireless") || tipo.equalsIgnoreCase("Cablate"))
-         this.tipo = tipo;
+        if (tipo.equalsIgnoreCase("Wireless") || tipo.equalsIgnoreCase("Cablate"))
+            this.tipo = tipo;
 
     }
 

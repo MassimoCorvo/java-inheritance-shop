@@ -7,6 +7,9 @@ public class Smartphone extends Prodotto{
         super(nome, marca, prezzo, iva);
         this.codiceImei = codiceImei;
         this.memoria = memoria;
+
+        if( this.memoria < 32 )
+         this.setSconto(0.05f);
     }
 
     public int getCodiceImei(){
@@ -24,4 +27,5 @@ public class Smartphone extends Prodotto{
     public void setMemoria(int memoria){
         this.memoria = memoria;
     }
+
 }

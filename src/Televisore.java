@@ -7,6 +7,9 @@ public class Televisore extends Prodotto{
         super(nome, marca, prezzo, iva);
         this.dimensione = dimensione;
         this.smartTv = smartTv;
+
+        if( !this.smartTv )
+            this.setSconto(0.1f);
     }
 
     public int getDimensione(){
@@ -24,4 +27,5 @@ public class Televisore extends Prodotto{
     public void setSmartTv(boolean smart){
         this.smartTv = smart;
     }
+
 }

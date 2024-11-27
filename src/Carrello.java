@@ -111,7 +111,6 @@ public class Carrello {
             scelta = input.nextLine();
 
         }
-        input.close();
 
         if (indiceArrayProdotti > 0) {
             for (int i = 0; i < indiceArrayProdotti; i++) {
@@ -119,6 +118,31 @@ public class Carrello {
             }
         } else
             System.out.println("Il carrello è vuoto");
+
+        
+        System.out.println("Hai la tessera sconto? Digita true oppure false");
+        boolean tessera = input.nextBoolean();
+        input.close();
+
+        float totale = 0;
+
+        if( tessera )
+            {
+                for(int i = 0; i < indiceArrayProdotti; i++){
+                    totale += arrayProdotti[i].calcolaPrezzoConSconto();
+                }
+
+            }
+        else {
+
+            for(int i = 0; i < indiceArrayProdotti; i++){
+                totale += arrayProdotti[i].getPrezzoConIva();
+            }
+
+        }
+        
+        System.out.println("Il totale è: " + totale + " euro");
     }
+
 
 }

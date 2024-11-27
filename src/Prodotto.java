@@ -7,6 +7,7 @@ public class Prodotto {
     private String marca;
     private float prezzo;
     private float iva;
+    private float sconto;
 
     public Prodotto(String nome, String marca, float prezzo, float iva ){
 
@@ -17,6 +18,8 @@ public class Prodotto {
         this.marca = marca;
         this.prezzo = prezzo;
         this.iva = iva;
+
+        this.sconto = 0.02f;
 
     }
 
@@ -81,6 +84,19 @@ public class Prodotto {
         this.iva = iva;
     }
 
+    public float getSconto(){
+        return this.sconto;
+    }
 
+    public void setSconto(float sconto){
+
+        if( sconto > 0 && sconto < 1 )
+            this.sconto = sconto;
+
+    }
+
+    public float calcolaPrezzoConSconto(){
+       return this.getPrezzoConIva() * (1 - this.sconto);
+    }
 }
 
