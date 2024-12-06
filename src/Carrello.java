@@ -4,6 +4,10 @@ public class Carrello {
     public static void main(String[] args) throws Exception {
 
         Prodotto[] arrayProdotti = new Prodotto[20];
+        
+        //Per comodità creo uno schermo e un processore qui
+        Schermo schermo = new Schermo(5, true, "2k");
+        Processore processore = new Processore("Super CPU", 32, "MediaTek");
 
         Scanner input = new Scanner(System.in);
         System.out
@@ -34,7 +38,7 @@ public class Carrello {
 
                 input.nextLine();
 
-                Smartphone smartphone = new Smartphone(nome, marca, prezzo, iva, codiceImei, memoria);
+                Smartphone smartphone = new Smartphone(nome, marca, prezzo, iva, codiceImei, memoria, processore, schermo);
 
                 arrayProdotti[indiceArrayProdotti] = smartphone;
                 indiceArrayProdotti++;
@@ -66,7 +70,7 @@ public class Carrello {
 
                 input.nextLine();
 
-                Televisore televisore = new Televisore(nome, marca, prezzo, iva, dimensione, smart);
+                Televisore televisore = new Televisore(nome, marca, prezzo, iva, dimensione, smart, schermo);
 
                 arrayProdotti[indiceArrayProdotti] = televisore;
                 indiceArrayProdotti++;
@@ -112,6 +116,7 @@ public class Carrello {
 
         }
 
+        //Stampo il carrello
         if (indiceArrayProdotti > 0) {
             for (int i = 0; i < indiceArrayProdotti; i++) {
                 System.out.println(arrayProdotti[i].getNome());
@@ -120,6 +125,7 @@ public class Carrello {
             System.out.println("Il carrello è vuoto");
 
         
+        //Chiedo la tessera sconto e calcolo il prezzo scontato oppure no
         System.out.println("Hai la tessera sconto? Digita true oppure false");
         boolean tessera = input.nextBoolean();
         input.close();
